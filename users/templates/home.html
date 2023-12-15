@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>django google</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body style="background-color: aquamarine;
+    opacity: 1;">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+
+        {% load socialaccount %}
+        <h2 style="color:blue;text-align:center;text-shadow: 2px 2px 5px blue;font-size: 35px;">Google login </h2>
+        <a href="{% provider_login_url 'google' %}?next=/"> login with google</a>
+
+
+        {% if user.is_authenticated %}
+        <p style="text-shadow: 2px 2px 5px blue;"> you are sign in as {{user.email}} </p>
+        <a href="logout"> Logout </a>
+        {% endif %}
+        <script src="" async defer></script>
+    </body>
+</html>
