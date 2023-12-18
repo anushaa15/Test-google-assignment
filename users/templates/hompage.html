@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>  Details </title>
+    </head>
+    <body>
+        <h2 style="text-align:center">  Reviews Details </h2>
+          <table class= 'table' style = "width: 80%">
+            <thead class='thead-light' style="background-color : blue">
+              <tr>
+              <th>id</th>
+              <th>title </th>
+              <tr>
+            </thead>
+            <tbody > 
+              <tr>
+              {% for i in informations %}
+              <td>   {{ i.id}}   </td>
+              <td> {{ i.title}} </td>
+             
+              </tr>
+              {%endfor%}
+             
+              </tbody>
+          </table>
+    </body>
+</html>

@@ -21,9 +21,13 @@
 
 
         {% if user.is_authenticated %}
-        <p style="text-shadow: 2px 2px 5px blue;"> you are sign in as {{user.email}} </p>
+        <p style="text-shadow: 2px 2px 5px blue;"> you are sign in as {{user.email}} </p> <br> <br>
+
+        <a href="{% url 'homepage' %}">See reviews</a> <br> 
         <a href="logout"> Logout </a>
         {% endif %}
         <script src="" async defer></script>
+
+       
     </body>
 </html>

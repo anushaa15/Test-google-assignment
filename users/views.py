@@ -1,16 +1,33 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import logout
+from django.contrib.auth import logout, login
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
+from django.http import HttpResponse
+from django.core.serializers import serialize
+from .models import ApiTestModel
+
 
 # Create your views here.
 
 def home(request):
     return render(request, "home.html")
 
+def login_view(request):
+    login(request)
+    return redirect("/")
+
 def logout_view(request):
     logout(request)
     return redirect("/")
+
+def homepage(request):
+    all_data=ApiTestModel.objects.all()
+    return render(request, 'hompage.html', {"informations" : all_data})
+
+def display(request):
+    q = ApiTestModel.objects.all()
+    data = serialize('json',q, fields=('id', 'title'))
+    return HttpResponse(data, content_type="application/json")
 
 def get_google_reviews(api_key, place_id):
     credentials = service_account.Credentials.from_service_account_file(
